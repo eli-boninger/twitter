@@ -6,7 +6,7 @@ import axios from 'axios';
 function App() {
 
   const handleAuth = async () => {
-    await axios.get(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=${process.env.X_CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.X_REDIRECT_URI)}&scope=${scopes}&state=state&code_challenge=challenge&code_challenge_method=plain`);
+    await axios.get(`https://twitter.com/i/oauth2/authorize?response_type=code&client_id=${import.meta.env.VITE_X_CLIENT_ID}&redirect_uri=${encodeURIComponent(import.meta.env.VITE_CALLBACK_URI)}&scope=${scopes}&state=state&code_challenge=challenge&code_challenge_method=plain`);
   };
 
   return (
