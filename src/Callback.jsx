@@ -13,7 +13,7 @@ export const Callback = () => {
         if (!token) {
             console.error("Unauthorized");
         } else {
-            const res = await axios.post('https://api.x.com/2/tweets', { text: "Hi!" }, { headers: { Authorization: `Bearer ${token}` } });
+            const res = await axios.post(`${VITE_API_URL}/tweet?token=${token}`, { text: "Hi!" });
             console.log(res.data);
         }
     };
