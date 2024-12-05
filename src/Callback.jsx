@@ -13,7 +13,7 @@ export const Callback = () => {
             params.append('code', code);
             params.append('client_id', import.meta.env.VITE_X_CLIENT_ID);
             params.append('grant_type', 'authorization_code');
-            params.append('redirect_uri', import.meta.env.VITE_CALLBACK_URI);
+            params.append('redirect_uri', encodeURIComponent(import.meta.env.VITE_CALLBACK_URI));
             params.append('code_verifier', 'challenge');
             const res = await axios.post('https://api.x.com/2/oauth2/token', params, { headers: { "Content-Type": "application/x-www-form-urlencoded" } });
             console.log(res.data);
